@@ -1,0 +1,25 @@
+﻿@page "/form"
+@inherits FormComponent
+
+<h1>Form</h1>
+
+<EditForm OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit" Model="@Model">
+    @*<DataAnnotationsValidator />*@
+    <div class="form-group">
+        <input @bind="Model.Text" class="form-control" />
+        <ValidationMessage For="(() => Model.Text)" />
+    </div>
+
+    <div class="form-group">
+        <select @bind="Model.Select" class="form-control">
+            <option value="0" selected disabled>Select One</option>
+            <option value="1">A</option>
+            <option value="2">B</option>
+        </select>
+        <ValidationMessage For="(() => Model.Select)" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+
+
+</EditForm>
